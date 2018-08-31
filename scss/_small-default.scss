@@ -1,0 +1,53 @@
+/* Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.  
+    reset iphone and windows phone dont change size on oreientation.
+*/
+html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
+
+/*  add margin to outside of box
+    add padding to the outside of the box  */
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+/* Remove arrows from number input boxes */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+.price-summary {
+    display: block;
+    font-size: 1em;
+    font-weight: 400;
+  }
+  .quantity-titles {    
+    font-size: 1.1em;
+    font-weight: 600;
+  }
+  .wizard .content {
+    min-height: 73em !important;
+ } 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
