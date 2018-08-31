@@ -117,13 +117,14 @@ input::-webkit-inner-spin-button {
   font-size: 1.1em;
   font-weight: 600; }
 
-.wizard .content {
-  min-height: 73em !important; }
-
-@media only screen and (min-width: 560px) {
+@media only screen and (min-width: 768px) {
   .wizard .content {
-    min-height: 31em !important; } }
+    min-height: 34em !important; }
+  .wizard .content .body {
+    height: auto  !important; } }
 
-@media only screen and (min-width: 1140px) {
-  body {
-    background-color: green; } }
+@media only screen and (min-width: 1200px) {
+  .wizard .content {
+    min-height: 34em !important; }
+  .wizard .content .body {
+    height: auto  !important; } }

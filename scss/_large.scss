@@ -1,3 +1,6 @@
-body {
-    background-color: green;
-}
+.wizard .content {
+    min-height: 34em !important;
+  }
+  .wizard .content .body {
+  height: auto  !important;
+  }

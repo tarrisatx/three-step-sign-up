@@ -53,8 +53,7 @@ form.children("div").steps({
     onStepChanged: function (event, currentIndex, priorIndex) {
         
         //Check if step at position 1 and submit data to json object     
-        if(currentIndex === 1){
-
+        if(currentIndex === 1) {           
             $('form.ajax').click('#next', function(){
     
                 var that = $(this),
@@ -77,17 +76,22 @@ form.children("div").steps({
                            data: data,
                            success: function(data) {
                            $("#results").html(
-                               data.firstname + " " + data.lastname + "<br />" +
-                               data.useremail + "<br />" +
-                               data.address + "<br />" + 
-                               data.city + " " + data.state + ", " + data.zip + "<br />"
+                               "<strong>Name:</strong> " + data.firstname + " " + data.lastname + "<br />" +
+                               "<strong>Email:</strong> " + data.useremail + "<br />" +
+                               "<strong>Address:</strong> " + data.address + " " + data.city + " " + data.state + ", " + data.zip + "<br />"
                             );                 
                            }
-                           
                        })
-
+                       
                     return false;
             })
+            //Adjust content height on second step
+            $(".wizard .content").css({"min-height": "73em"});
+        }
+
+        if (currentIndex === 2) {
+            //Adjust content height on second step
+            $(".wizard .content").css({"min-height": "34em"});
         }
     }, 
     onFinished: function (event, currentIndex) {
@@ -102,43 +106,43 @@ form.children("div").steps({
 });
 
 $(document).ready(function(e){ 
-    //Calculate values of quantity boxes
-    $("input").change(function(){
-        var mysum=0;
-        $("input[name=quantity]").each(function(){
-            var amountTotal = $(this).val();
-            if($.isNumeric(amountTotal)) {
-                mysum += parseFloat(amountTotal);
-            }                
-        })            
-        $('#totalQuantity').text(mysum);       
-    });
-    //Clear values inside hidden input boxes on step one if checkbox is unchecked
-    $('#checkbox_one').click(function() {
-        if ($(this).is(':not(:checked)')) {
-            $("#hidden_one").val("");
-        }
-    });
-    $('#checkbox_two').click(function() {
-        if ($(this).is(':not(:checked)')) {
-            $("#hidden_two").val("");
-        }
-    });
-    $('#checkbox_three').click(function() {
-        if ($(this).is(':not(:checked)')) {
-            $("#hidden_three").val("");
-        }
-    });
-    //Hide or show quantity boxes if checked or unchecked
-    $('.hidden').hide();
-        $('.trigger').change(function() {  
-            var hiddenId = $(this).attr("data-trigger");
+            //Calculate values of quantity boxes
+            $("input").change(function(){
+                var mysum=0;
+                $("input[name=quantity]").each(function(){
+                    var amountTotal = $(this).val();
+                    if($.isNumeric(amountTotal)) {
+                        mysum += parseFloat(amountTotal);
+                    }                
+                })            
+                $('#totalQuantity').text(mysum);       
+            });
+            //Clear values inside hidden input boxes on step one if checkbox is unchecked
+            $('#checkbox_one').click(function() {
+                if ($(this).is(':not(:checked)')) {
+                    $("#hidden_one").val("");
+                }
+            });
+            $('#checkbox_two').click(function() {
+                if ($(this).is(':not(:checked)')) {
+                    $("#hidden_two").val("");
+                }
+            });
+            $('#checkbox_three').click(function() {
+                if ($(this).is(':not(:checked)')) {
+                    $("#hidden_three").val("");
+                }
+            });
+            //Hide or show quantity boxes if checked or unchecked
+            $('.hidden').hide();
+                $('.trigger').change(function() {  
+                    var hiddenId = $(this).attr("data-trigger");
 
-        if ($(this).is(':checked')) {
-                $("#" + hiddenId).show();
-        } else {
+                if ($(this).is(':checked')) {
+                        $("#" + hiddenId).show();
+                } else {
 
-            $("#" + hiddenId).hide();          
-        }            
-    });        
+                    $("#" + hiddenId).hide();          
+                }            
+            });        
 });

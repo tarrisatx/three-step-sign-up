@@ -109,7 +109,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="ccard">Credit Card *</label>
+                    <label for="ccard">Credit Card * ex: 4112344112344113</label>
                     <input id="ccard" type="text" name="ccard" class="form-control" placeholder="Credit card *" required="required" data-error="Valid email is required.">
                     <div class="help-block with-errors"></div>
                 </div>
@@ -142,8 +142,6 @@
                     <label for="expyear">Expiration Year *</label>
                     <select name="expyear" id="expyear" class="form-control" required="required" data-error="Enter valid year.">
                     <option value="" selected="selected">Year</option>
-                    <option value="2016">2016</option>
-                    <option value="2017">2017</option>
                     <option value="2018">2018</option>
                     <option value="2019">2019</option>
                     <option value="2020">2020</option>

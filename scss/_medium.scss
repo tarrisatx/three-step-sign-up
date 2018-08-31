@@ -1,3 +1,6 @@
 .wizard .content {
-    min-height: 31em !important;
- } 
+    min-height: 34em !important;
+  }
+  .wizard .content .body {
+  height: auto  !important;
+  }
