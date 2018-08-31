@@ -60,11 +60,12 @@
 
                 <div class="col-md-3">
                 <p>Total Mailboxes</p> <output id="totalQuantity"></output>
+                <input type="hidden" id="mailboxes" name="mailboxes">
                 </div>
 
             </section>
             <h3>Checkout</h3>
-            <section>
+            <section class="hide-labels">
             <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
@@ -196,11 +197,20 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p>You may use these sample credit cards for testing:</p>
+                <p>Visa: 4112344112344113</p>
+                <p>Mastercard: 5112345112345114</p>
+                <p>Discover: 6011111111111117</p>
+                <p>American Express: 378282246310005</p>
+            </div>
+        </div>
             </section>
             <h3>Confirmation</h3>
             <section>     
-                <h1 class="text-center">Order Review</h1>           
-            <div id="results"></div>
+                <h1 class="text-center">Order Review</h1>
+                <div id="results"></div>
             </section>
             
         </div>

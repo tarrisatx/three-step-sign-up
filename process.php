@@ -1,5 +1,5 @@
 <?php
-        
+    //Form will be submitted with or with out javascript on the backend
     $name       = $_POST['name'];
     $lname      = $_POST['lname'];
     $email      = $_POST['email'];
@@ -7,6 +7,7 @@
     $bcity      = $_POST['bcity'];
     $bstate     = $_POST['bstate'];
     $bzip       = $_POST['bzip'];
+    $mailboxes   = $_POST['mailboxes'];
  
         if (isset($_POST['name'])) {
            $data = array(
@@ -16,8 +17,10 @@
                 "address"    => $baddress,
                 "city"       => $bcity,
                 "state"      => $bstate,
-                "zip"        => $bzip
+                "zip"        => $bzip,
+                "totalamount" => $mailboxes
            );
-        echo json_encode($data);
+        //convert to json to be handled async
+           echo json_encode($data);
     }
 ?>

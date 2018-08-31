@@ -78,7 +78,8 @@ form.children("div").steps({
                            $("#results").html(
                                "<strong>Name:</strong> " + data.firstname + " " + data.lastname + "<br />" +
                                "<strong>Email:</strong> " + data.useremail + "<br />" +
-                               "<strong>Address:</strong> " + data.address + " " + data.city + " " + data.state + ", " + data.zip + "<br />"
+                               "<strong>Address:</strong> " + data.address + " " + data.city + " " + data.state + ", " + data.zip + "<br /> <br />" + 
+                               "<strong>Total Mailboxes:</strong> " + " " + data.totalamount
                             );                 
                            }
                        })
@@ -86,12 +87,12 @@ form.children("div").steps({
                     return false;
             })
             //Adjust content height on second step
-            $(".wizard .content").css({"min-height": "73em"});
+            $(".wizard .content").css({"min-height": "57em"});
         }
 
         if (currentIndex === 2) {
-            //Adjust content height on second step
-            $(".wizard .content").css({"min-height": "34em"});
+            //Adjust content height on third step
+            $(".wizard .content").css({"min-height": "36em"});
         }
     }, 
     onFinished: function (event, currentIndex) {
@@ -114,8 +115,12 @@ $(document).ready(function(e){
                     if($.isNumeric(amountTotal)) {
                         mysum += parseFloat(amountTotal);
                     }                
-                })            
-                $('#totalQuantity').text(mysum);       
+                })
+                // Get total mailboxes in output field            
+                $('#totalQuantity').text(mysum);
+                // Get total mailboxes in hidden field
+                $('#mailboxes').val(mysum);
+
             });
             //Clear values inside hidden input boxes on step one if checkbox is unchecked
             $('#checkbox_one').click(function() {
