@@ -94,12 +94,12 @@
     <div id="block-rackspace-mainpagecontent">
   
     
-      <div class="node node--type-panel node--view-mode-full clearfix"><div>
+      <div class="node node--type-panel node--view-mode-full clearfix">top<div>
     
 
 
 <div class="body-region">
-<?php require_once('../home.php'); ?>
+bot
 </div>
 
   </div>

@@ -24,8 +24,8 @@ gulp.task('js', function() {
         .pipe(gulp.dest("js"))
         .pipe(browserSync.stream());
 });
-// Watch for scss/html files
-//server
+// Watch for scss/html/php files
+//server - Change proxy below to needed path
 gulp.task('serve', ['sass'], function() {
     browserSync.init({
         proxy: "http://localhost/SASS/dev/"
