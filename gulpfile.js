@@ -1,5 +1,6 @@
 //reference packages
 var gulp        = require('gulp');
+var jslint      = require('gulp-jslint');
 var browserSync = require('browser-sync').create();
 var sass        = require('gulp-sass');
 var projectPHPWatchFiles = './**/*.php'; // Path to all PHP files.    
@@ -24,32 +25,30 @@ gulp.task('js', function() {
         .pipe(gulp.dest("js"))
         .pipe(browserSync.stream());
 });
-// Watch for scss/html/php files
-//server - Change proxy below to needed path
+// Find issues with my code
+gulp.task('jslint', function () {
+    return gulp.src(['./js/script.js'])
+            .pipe(jslint({
+                predef: ['$', 'JQuery', 'document', 'window', 'console'], // Set global variables mostly for JQuery
+                this: true, // Tolerate using this keyword
+                browser: true // Assume "a browser" option true
+            }))
+            .pipe(jslint.reporter('default'));
+});
+// Watch for scss/html files/php files
+// server
 gulp.task('serve', ['sass'], function() {
     browserSync.init({
+        // Use when running locally and using php.
         proxy: "http://localhost/SASS/dev/"
+        
+        // Use when running localhost no php for example.
+        // server: "./"
     });
     gulp.watch(['node_modules/bootstrap/scss/bootstrap.scss', 'scss/*.scss'], ['sass']);
     gulp.watch("*.html").on('change', browserSync.reload);
     gulp.watch("./*.php").on('change', browserSync.reload);
-    gulp.watch( projectPHPWatchFiles, reload); // Reload on PHP file changes.
-    
+    gulp.watch( projectPHPWatchFiles, reload); // Reload on PHP file changes.    
 });
-
-
-
-
-
-
-/* gulp.task('serve', ['sass'], function() {
-
-    browserSync.init({
-        server: "./"  
-    });
-
-    gulp.watch(['node_modules/bootstrap/scss/bootstrap.scss', 'scss/*.scss'], ['sass']);
-}); */
-
 // Start server and launch browser
 gulp.task('default', ['js','serve']);
