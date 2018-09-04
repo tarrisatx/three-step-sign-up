@@ -34,6 +34,22 @@ form.children("div").steps({
     headerTag: "h3",
     bodyTag: "section",
     transitionEffect: "slideLeft",
+    //check if form is valid before changing steps
+    onStepChanging: function (event, currentIndex, newIndex) {
+        "use strict";
+        //Stop validation on previous button click
+        if (currentIndex > newIndex) {
+            return true;
+        }
+        form.validate().settings.ignore = ":disabled,:hidden";
+        return form.valid();
+    },
+    //Prevent completion by checking if all fields are valid before completion.
+    onFinishing: function (event, currentIndex) {
+        "use strict";
+        form.validate().settings.ignore = ":disabled";
+        return form.valid();
+    },
     //Update button text
     labels: {
         finish: "Process Order"
