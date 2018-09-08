@@ -73,7 +73,8 @@ form.children("div").steps({
                             data.address + " " + data.city + " " +
                             data.state + ", " + data.zip + "<br /> <br />" +
                             "<strong>Total Mailboxes:</strong> " +
-                            " " + data.totalamount
+                            " " + data.totalamount + " " + "<br />" +
+                            "<strong>Total Price: </strong> " + data.finalprice
                         );
                     }
                 });
@@ -102,10 +103,16 @@ $(document).ready(function () {
     //Calculate values of quantity boxes
     $("input").change(function () {
         var mysum = 0;
+        var sum = 0;
         $("input[name=quantity]").each(function () {
             var amountTotal = $(this).val();
             if ($.isNumeric(amountTotal)) {
                 mysum += parseFloat(amountTotal);
+                var price = $(this).data("price");
+                if (this.value.length && !isNaN(this.value) && !isNaN(price)) {
+                    sum += parseFloat(this.value) * parseFloat(price);
+                }
+                $("#totalprice").val("$" + sum.toFixed(2));
             }
         });
         // Get total mailboxes in output field

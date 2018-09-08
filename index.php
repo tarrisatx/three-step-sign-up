@@ -30,7 +30,7 @@
                 
                 <div id="hidden_fields_one" class="hidden">
                     <label for="hidden_one">QTY</label>
-                        <input class="form-control text-center col-sm-3" type="number" id="hidden_one" name="quantity">
+                        <input class="form-control text-center col-sm-3" type="number" id="hidden_one" name="quantity" data-price="2.00">
                     </div>
                 </div>
 
@@ -42,7 +42,7 @@
                 </div>
                     <div id="hidden_fields_two" class="hidden">
                     <label for="hidden_two">QTY</label>
-                     <input class="form-control text-center col-sm-3" type="number" id="hidden_two" name="quantity">
+                     <input class="form-control text-center col-sm-3" type="number" id="hidden_two" name="quantity" data-price="3.50">
                     </div>
                 </div>
 
@@ -54,13 +54,13 @@
                 </div>
                     <div id="hidden_fields_three" class="hidden">
                     <label for="hidden_three">QTY</label>
-                     <input class="form-control text-center col-sm-3" type="number" id="hidden_three" name="quantity">
+                     <input class="form-control text-center col-sm-3" type="number" id="hidden_three" name="quantity" data-price="7.99">
                     </div>
                 </div>
 
                 <div class="col-md-3">
-                <p>Total Mailboxes</p> <output id="totalQuantity"></output>
-                <input type="hidden" id="mailboxes" name="mailboxes">
+                Total Mailboxes: <input type="text" id="mailboxes" name="mailboxes" readonly="readonly">
+                Total Price: <input type="text" id="totalprice" name="totalprice" readonly="readonly">
                 </div>
 
             </section>

@@ -31,7 +31,8 @@ gulp.task('jslint', function () {
             .pipe(jslint({
                 predef: ['$', 'JQuery', 'document', 'window', 'console'], // Set global variables mostly for JQuery
                 this: true, // Tolerate using this keyword
-                browser: true // Assume "a browser" option true
+                browser: true, // Assume "a browser" option true
+                unparam: true
             }))
             .pipe(jslint.reporter('default'));
 });

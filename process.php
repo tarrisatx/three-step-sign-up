@@ -8,6 +8,7 @@
     $bstate     = $_POST['bstate'];
     $bzip       = $_POST['bzip'];
     $mailboxes   = $_POST['mailboxes'];
+    $totalprice  = $_POST['totalprice'];
  
         if (isset($_POST['name'])) {
            $data = array(
@@ -18,7 +19,8 @@
                 "city"       => $bcity,
                 "state"      => $bstate,
                 "zip"        => $bzip,
-                "totalamount" => $mailboxes
+                "totalamount" => $mailboxes,
+                "finalprice"    => $totalprice
            );
         //convert to json to be handled async
            echo json_encode($data);
