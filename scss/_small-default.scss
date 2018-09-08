@@ -27,6 +27,10 @@ input::-webkit-inner-spin-button {
 .hide-labels label {
     display: none !important;
   }
+ input#mailboxes, input#totalprice {
+    border: none;
+    background: transparent;
+}
  
 
 
